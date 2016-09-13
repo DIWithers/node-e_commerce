@@ -1,0 +1,55 @@
+/* line 1, ../compass/sass/style.scss */
+body {
+  font-family: Verdana, sans-serif;
+  padding-bottom: 15px;
+}
+
+/* line 5, ../compass/sass/style.scss */
+#views {
+  margin-top: 25px;
+}
+
+/* line 8, ../compass/sass/style.scss */
+.nav {
+  background-color: beige;
+}
+
+/* line 11, ../compass/sass/style.scss */
+.navbar-brand {
+  margin-bottom: 8px;
+}
+
+/* line 14, ../compass/sass/style.scss */
+.navbar-brand img {
+  max-height: 60px;
+}
+
+/* line 18, ../compass/sass/style.scss */
+#types img {
+  max-height: 150px;
+  border-radius: 10px;
+}
+
+/* line 23, ../compass/sass/style.scss */
+#types {
+  text-align: center;
+}
+
+/* line 26, ../compass/sass/style.scss */
+.title {
+  padding-top: 5px;
+  font-family: Fantasy, Verdana;
+  font-size: 15px;
+}
+
+/* line 31, ../compass/sass/style.scss */
+p {
+  font-family: Verdana, sans-serif;
+}
+
+/* line 34, ../compass/sass/style.scss */
+footer {
+  bottom: 0;
+  font-size: 10px;
+  color: brown;
+}
