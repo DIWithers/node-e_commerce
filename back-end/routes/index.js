@@ -7,12 +7,13 @@ mongoose.connect(mongoUrl);
 
 //Include bcrypt to store hashed pass
 var bcrypt = require("bcrypt-nodejs");
+var randToken = require("rand-token").uid;
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Express' });
+// });
 
 router.post("/register", function(req, res, next) {
 	// if (req.body.password !== req.body.password2) {
@@ -20,18 +21,32 @@ router.post("/register", function(req, res, next) {
 	// 		message: "noPasswordMatch" //res.data.message, better on front end form validation
 	// 	})
 	// }
-	
+	var token = randToken(32);
+
 	var userToAdd = new User({
 		username: req.body.username,
-		password: brcrypt.hashSync(req.body.password),
-		email: req.body.email
+		password: bcrypt.hashSync(req.body.password), 
+		email: req.body.email,
+		token: token,
+		tokenExpDate: Date.now() + (30 * 60 * 1000)
 	});
-	userToAdd.save();
-	console.log(req);
-	res.json({
-		message:"added"
-		// name: req.body.username
+	userToAdd.save(function(error, documentAdded) {
+		if(error) {
+			console.log("!!!!!!!!!");
+			console.log(error);
+
+			res.json({
+				message: "errorAdding" //res.data.message path
+			});
+		}
+		else {
+			res.json({
+				message: "added",
+				token: token //res.data.token
+			});
+		}
 	});
+	
 });
 
 router.post("/login", function(req, res, next) {
@@ -46,7 +61,7 @@ router.post("/login", function(req, res, next) {
 		}
 		else {
 			//Run comparesync - first param is the english pw, second param is the hash. Will return true if equal
-			var loginResult = becrypt.compareSync(req.body.password, document.password); //(english, hashed password)
+			var loginResult = bcrypt.compareSync(req.body.password, document.password); //(english, hashed password)
 			if (loginResult) {
 				//pw correct, login
 				res.json({
@@ -61,17 +76,45 @@ router.post("/login", function(req, res, next) {
 		}
 	})
 });
-// router.get("/getUsers", function(req, res, next) {
-// 	User.find({}, function(error, documents) {
-// 		if (error){
-// 			res.json(error);
-// 		}
-// 		else {
-// 			res.json(documents);
-// 		}
-		
-// 	});
-// });
+router.post("/options", function(req, res, next) {
+	User.update(
+		{token: req.body.token}, //This is the droid we are looking for
+		{
+			frequency: req.body.frequency,
+			quantity: req.body.quantity,
+			grindType: req.body.grind
+		}
+	)
+	
+})
+
+router.get("/getUserData", function(req, res, next) {
+	var userToken = req.query.token; // the xxxxx in ?token=xxxxxx
+	if (userToken === undefined) {
+		//No token was supplied
+		res.json({failure: "noToken"});
+	}
+	else {
+		User.findOne(
+			{token: userToken}, //this is the droid we're looking for
+			function(error, document) {
+				if(document === null) {
+					//this token is not in the system
+					res.json({failure: "badToken"}); //Angular needs to send them back to the login page
+				}
+				else {
+					res.json({
+						username: document.username,
+						grind: document.grind,
+						frequency: document.frequency,
+						token: document.token
+						});
+				}
+			}
+		)
+	}
+
+});
 	
 
 

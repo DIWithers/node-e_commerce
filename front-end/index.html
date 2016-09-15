@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="ecommerceApp">
 <head>
-	<title></title>
+	<title>DC Roasters</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body ng-controller="mainController">
-<nav class="nav navbar-default">
+<nav class="nav navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false" class="navbar-toggle collapsed">
@@ -38,8 +38,8 @@
 				<li ng-hide="loggedIn">
 					<a ng-href="#/login">Log In</a>
 				</li>
-                <li ng-hide="loggedIn">
-                    <a ng-href="#/logout">Log Out</a>
+                <li ng-hide="LoggedOut">
+                    <a ng-click="logout()">Log Out</a>
                 </li>                
 			</ul>
 		</div>

@@ -6,50 +6,204 @@ body {
 
 /* line 5, ../compass/sass/style.scss */
 #views {
-  margin-top: 25px;
+  margin-top: 100px;
 }
 
 /* line 8, ../compass/sass/style.scss */
 .nav {
-  background-color: beige;
+  background-color: #DFC8B9;
+  height: 78px;
 }
 
-/* line 11, ../compass/sass/style.scss */
+/* line 12, ../compass/sass/style.scss */
 .navbar-brand {
   margin-bottom: 8px;
 }
 
-/* line 14, ../compass/sass/style.scss */
+/* line 15, ../compass/sass/style.scss */
 .navbar-brand img {
   max-height: 60px;
 }
 
-/* line 18, ../compass/sass/style.scss */
-#types img {
+/* line 19, ../compass/sass/style.scss */
+#types1 img, #types2 img {
   max-height: 150px;
-  border-radius: 10px;
+  border-radius: 100px;
 }
 
-/* line 23, ../compass/sass/style.scss */
-#types {
+/* line 24, ../compass/sass/style.scss */
+#types3 img {
+  height: 150px;
+  width: 160px;
+  border: 3px solid #6A493B;
+  border-radius: 100px;
+}
+
+/* line 31, ../compass/sass/style.scss */
+#types1, #types2, #types3 {
   text-align: center;
 }
 
-/* line 26, ../compass/sass/style.scss */
+/* line 34, ../compass/sass/style.scss */
+.getStarted {
+  text-align: center;
+}
+
+/* line 37, ../compass/sass/style.scss */
+.getStarted button {
+  margin: 50px 0px;
+  background-color: #754638;
+  border-color: #754638;
+}
+
+/* line 42, ../compass/sass/style.scss */
 .title {
   padding-top: 5px;
   font-family: Fantasy, Verdana;
   font-size: 15px;
 }
 
-/* line 31, ../compass/sass/style.scss */
+/* line 47, ../compass/sass/style.scss */
 p {
   font-family: Verdana, sans-serif;
 }
 
-/* line 34, ../compass/sass/style.scss */
+/* line 50, ../compass/sass/style.scss */
 footer {
+  padding-top: 10px;
   bottom: 0;
   font-size: 10px;
   color: brown;
+}
+
+/* line 56, ../compass/sass/style.scss */
+.introMain {
+  background-image: url("../images/coffeeandtea1.jpg");
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* line 65, ../compass/sass/style.scss */
+.info {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* line 70, ../compass/sass/style.scss */
+.info img {
+  height: 100px;
+}
+
+/* line 73, ../compass/sass/style.scss */
+#stepsContainer {
+  background-color: lightgray;
+}
+
+/* line 76, ../compass/sass/style.scss */
+#step1 {
+  background-image: url("../images/coffee/bags.jpg");
+  height: 200px;
+  color: white;
+  vertical-align: center;
+  font-size: 15px;
+}
+
+/* line 83, ../compass/sass/style.scss */
+#step1 li, #step2 li, #step3 li {
+  list-style-type: none;
+}
+
+/* line 87, ../compass/sass/style.scss */
+#step2 {
+  padding: 30px;
+  height: 200px;
+  vertical-align: center;
+  font-size: 15px;
+  background-color: #F2F2F2;
+}
+
+/* line 94, ../compass/sass/style.scss */
+#step2 img {
+  height: 115px;
+  float: left;
+  transform: rotate(-20deg);
+  margin: 15px 50px 15px 5px;
+  border: 3px solid white;
+}
+
+/* line 101, ../compass/sass/style.scss */
+#step3 {
+  background-color: #200D06;
+  color: white;
+  height: 200px;
+}
+
+/* line 107, ../compass/sass/style.scss */
+#step3 img {
+  height: 150px;
+  float: right;
+  margin: 25px 60px;
+  border-radius: 10px;
+}
+
+/* line 114, ../compass/sass/style.scss */
+.already {
+  text-align: center;
+}
+
+/* line 117, ../compass/sass/style.scss */
+.form-control input {
+  margin: 0 300px;
+}
+
+/* line 123, ../compass/sass/style.scss */
+#deliveryOptions {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: auto;
+  background-color: beige;
+}
+
+/* line 130, ../compass/sass/style.scss */
+#deliveryOptions img {
+  max-height: 250px;
+}
+
+/* line 133, ../compass/sass/style.scss */
+.famPlan, .indivPlan {
+  background-color: white;
+  box-shadow: 0 0 10px 0;
+  margin: 30px 10px;
+}
+
+/* line 138, ../compass/sass/style.scss */
+.famPlan button, .indivPlan button {
+  width: 50%;
+  background-color: #754638;
+  border-color: #754638;
+  margin: 5px;
+}
+
+/* line 145, ../compass/sass/style.scss */
+.registration button, .login button {
+  width: 50%;
+  background-color: #3E5D56;
+  border: 3px solid;
+  border-color: #DFC8B9;
+  margin-bottom: 30px;
+}
+
+/* line 152, ../compass/sass/style.scss */
+.registration button:hover, .login button:hover {
+  background-color: #56746D;
+}
+
+/* line 156, ../compass/sass/style.scss */
+.registration, .login {
+  text-align: center;
+  background-color: #3E5D56;
+  box-shadow: 0 0 10px 0;
+  color: white;
 }
