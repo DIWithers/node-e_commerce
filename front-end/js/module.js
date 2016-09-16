@@ -1,0 +1,1 @@
+var ecommerceApp = angular.module("ecommerceApp", ["ngRoute", "ngCookies"]);

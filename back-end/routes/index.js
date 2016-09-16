@@ -5,6 +5,39 @@ var mongoUrl = "mongodb://localhost:27017/ecommerce"; //ecommerse is database
 var User = require("../models/users");
 mongoose.connect(mongoUrl);
 
+var config = require("../config/config"); //This is our config module. We have access to:
+											//config.secretTestKey
+var stripe = require("stripe")(config.secretTestKey);
+
+router.post("/stripe", function(req, res,next) {
+	stripe.charges.create({
+  		amount: 2000,
+  		currency: "usd",
+  		source: req.body.stripeToken, // obtained with Stripe.js
+  		// description: "Charge for michael.smith@example.com" //opt.
+	}).then((charge) => {
+		res.json({
+			success: "paid", //re-write to res.redirect//
+		});
+	}, function(err) {
+		res.json({
+			failure: "failedPayment"
+		});
+	});
+});
+ //  	idempotency_key: "ZPy1TDJHrews1DyM"
+	// }, function(err, charge) {
+ //  	// asynchronously called
+	// });
+
+
+
+//stripe - temp spot//
+var testSK = "sk_test_KTvK50onYBMW1qUMFeGfXH6o";
+var testPK = "pk_test_wvuS7o4sXJu8KdfvJ2VcwyBb";
+var liveSK = "sk_live_uFqLUrCvV20sH90viYqOM5mB";
+var livePK = "pk_live_YH1pog3uUTNaFzSuO7vNao6J";
+
 //Include bcrypt to store hashed pass
 var bcrypt = require("bcrypt-nodejs");
 var randToken = require("rand-token").uid;

@@ -79,9 +79,15 @@
 					<h2>Individual Plan</h2>
 					<p>For those who drink alone</p>
 					<img src="../images/drinker.jpg" class="img-responsive">
-					<h4>Cups per week:</h4>
-					<h4>Price per cup:</h4>
-					<h4>Weekly total:</h4>
+					<h4>Cups per week:  14</h4>
+					<h4>Price per cup:  $.50</h4>
+					<h4>Weekly total:  $7.00</h4>
+					 <select class="btn btn-default dropdown" ng-model="pickType" ng-options="type.option for type in types">
+						<option value="?" selected="selected"></option>
+						<option label="Black tea" value="type:1">Black tea</option>
+						<option label="Green tea" value="type:2">Green tea</option>
+						<option label="White tea" value="type:3">White tea</option>
+					</select>
 					<div class="button-holder">
 						<button type="submit" class="btn btn-success">SUBMIT</button>
 					</div>
@@ -94,9 +100,15 @@
 					<h2>Family Plan</h2>
 					<p>For those who drink together</p>
 					<img src="../images/drinkers.jpg" class="img-responsive">
-					<h4>Cups per week:</h4>
-					<h4>Price per cup:</h4>
-					<h4>Weekly total:</h4>
+					<h4>Cups per week:  40</h4>
+					<h4>Price per cup:  $.45</h4>
+					<h4>Weekly total:  $18.00</h4>
+					<select class="btn btn-default dropdown" ng-model="pickType" ng-options="type.option for type in types">
+						<option value="?" selected="selected"></option>
+						<option label="Black tea" value="type:1">Black tea</option>
+						<option label="Green tea" value="type:2">Green tea</option>
+						<option label="White tea" value="type:3">White tea</option>
+					</select>
 					<div class="button-holder">
 						<button type="submit" class="btn btn-success">SUBMIT</button>
 					</div>

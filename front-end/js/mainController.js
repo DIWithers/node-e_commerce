@@ -1,4 +1,4 @@
-var ecommerceApp = angular.module("ecommerceApp", ["ngRoute", "ngCookies"]);
+
 ecommerceApp.controller("mainController", function($scope, $http, $location, $cookies) {
 
 	var apiPath = "http://localhost:3000";
@@ -74,6 +74,39 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 
 // 		});
 // 	}
+    $scope.payOrder = function(userOptions) {
+        $scope.errorMessage = "";
+        var handler = StripeCheckout.configure({
+            key: "pk_test_wvuS7o4sXJu8KdfvJ2VcwyBb",
+            image: '../images/bev-button.jpeg',
+            locale: 'auto',
+            token: function(token) {
+                console.log("The token Id is: ");
+                console.log(token.id);
+
+                $http.post(apiPath + '/stripe', {
+                    amount: $scope.total * 100,
+                    stripeToken: token.id,
+                    token: $cookies.get('token')
+                        //This will pass amount, stripeToken, and token to /payment
+                }).then(function successCallback(response) {
+                    console.log(response.data);
+                    if (response.data.success) {
+                        //Say thank you
+                        $location.path('/receipt');
+                    } else {
+                        $scope.errorMessage = response.data.message;
+                        //same on the checkout page
+                    }
+                }, function errorCallback(response) {});
+            }
+        });
+        handler.open({
+            name: 'DC Roasters',
+            description: 'A Better Way To Grind',
+            amount: $scope.total * 100
+        });
+    };
 });
 
 //Set up routes using the routes module
@@ -96,6 +129,10 @@ ecommerceApp.config(function($routeProvider) {
 	})
 	.when("/delivery", {
 		templateUrl: "views/delivery.html",
+		controller: "mainController"
+	})
+	.when("/payment", {
+		templateUrl: "views/payment.html",
 		controller: "mainController"
 	});
 });
