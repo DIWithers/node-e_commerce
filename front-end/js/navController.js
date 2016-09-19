@@ -1,11 +1,15 @@
-ecommerceApp.controller("navController", function($scope, $location, $cookies) {
+ecommerceApp.controller("navController", function($scope,$http, $location, $cookies, $rootScope) {
 	$scope.$watch(function() {
 		return $location.path();
-	}, function(path) {
-			var cookie = ($cookies.get("token"))
+	},
+	function(path) {
+
+			var cookie = $cookies.get("token");
+			// console.log(cookie);
 			if (cookie) {
+				// if ($rootScope.loggedIn === true) {
 				$("#user-nav").show();
-				$scope.nav = $("user-nav").html('' + 
+				$scope.nav = $("#user-nav").html('' + 
 					'<nav class="navbar navbar-default navbar-fixed-top options-navbar" id="options-navbar">' +
 						'<div class="container-fluid">' + //use '+' to account for whitespace
 							'<div class="row row-centered">' +
@@ -37,7 +41,9 @@ ecommerceApp.controller("navController", function($scope, $location, $cookies) {
 						'</div>' +
 					'</nav>'
 				); //end of $scope.nav
-			}
-		});
+	
+			} //end if(cookie)
+
+	});
 		
 }); //end of controller

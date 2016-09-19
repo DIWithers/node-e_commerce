@@ -83,6 +83,9 @@ router.post("/register", function(req, res, next) {
 });
 
 router.post("/login", function(req, res, next) {
+	
+	var token = randToken(32);
+	// User.update(token: token);
 	User.findOne({
 		username: req.body.username
 	}, function (error, document){

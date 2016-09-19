@@ -1,5 +1,5 @@
 
-ecommerceApp.controller("mainController", function($scope, $http, $location, $cookies) {
+ecommerceApp.controller("mainController", function($scope, $http, $location, $cookies, $rootScope) {
 
 	var apiPath = "http://localhost:3000";
 
@@ -28,12 +28,15 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			username: $scope.username,
 			password: $scope.password
 		}).then(function successCallback(response) {
-			console.log(response);
+			console.log(response.data.token);
 			if(response.data.success === "userFound") {
 				$cookies.put("token", response.data.token);
 				$cookies.put("username", $scope.username);
 				$location.path("/options");
+				$rootScope.loggedIn = true;
 				console.log("Logged In successfully");
+				console.log(response.data.token);
+
 			}
 			else if(response.data.failure === "NoUser") {
 				$scope.errorMessage = "Incorrect username.";
@@ -47,6 +50,16 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 		});
 
 	}; //end of function
+	// $scope.isLoggedIn = function() {
+	// 	$http.get(apiPath + "/login")
+	// 	.success(function(data) {
+	// 		console.log(data);
+	// 		$rootScope.loggedIn = data;
+	// 	})
+	// 	.error(function(data) {
+	// 		console.log("error: " + data);
+	// 	});
+	// }
 	$scope.logout = function() {
 		$cookies.remove("token");
 		$cookies.remove("username");
@@ -107,32 +120,9 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
             amount: $scope.total * 100
         });
     };
-});
 
-//Set up routes using the routes module
-ecommerceApp.config(function($routeProvider) {
-	$routeProvider.when("/", {
-		templateUrl: "views/main.html",
-		controller: "mainController"
-	})
-	.when("/login", {
-		templateUrl: "views/login.html",
-		controller: "mainController"
-	})
-	.when("/register", {
-		templateUrl: "views/register.html",
-		controller: "mainController"
-	})
-	.when("/options", {
-	templateUrl: "views/options.html",
-	controller: "mainController"
-	})
-	.when("/delivery", {
-		templateUrl: "views/delivery.html",
-		controller: "mainController"
-	})
-	.when("/payment", {
-		templateUrl: "views/payment.html",
-		controller: "mainController"
-	});
-});
+}); 
+
+
+
+
