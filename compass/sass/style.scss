@@ -1,0 +1,207 @@
+body {
+	font-family: Verdana, sans-serif;
+	padding-bottom: 15px;
+}
+#views {
+	margin-top: 100px;
+}
+.nav {
+	background-color: #DFC8B9;
+	height: 78px;
+}
+.navbar-brand {
+	margin-bottom: 8px;
+}
+.navbar-brand img {
+	max-height: 60px;
+	
+}
+#options-navbar {
+	margin-top: 78px;
+	
+}
+#options-navbar a {
+	color: #9C5B44;
+}
+#options-navbar img {
+height: 100px;
+float: left;
+}
+#coffee-cup {
+	position: absolute;
+	top: 5px;
+	left: 25px;
+	width: 30px;
+	clip: rect(0px, 30px, 25px, 0px); //so much better than wily indiv pics
+}
+#knobs {
+  position: absolute;
+  top: -20px;
+  left: 15px;
+  width: 30px;
+  clip: rect(26px, 30px, 51px, 0px);
+}
+
+#truck {
+	position: absolute;
+  	top: -45px;
+  	left: 5px;
+  	width: 30px;
+  	clip: rect(51px, 30px, 75px, 0px);
+}
+#wallet {
+  	position: absolute;
+  	top: -72px;
+  	left: 10px;
+  	width: 30px;
+  	clip: rect(75px, 30px, 103px, 0px);
+}
+#types1 img, #types2 img {
+	max-height: 150px;
+	border-radius: 100px;
+
+}
+#types3 img {
+	height: 150px;
+	width: 160px;
+	border: 3px solid #6A493B;
+	border-radius: 100px;
+	
+	
+}
+#types1, #types2, #types3 {
+	text-align: center;
+}
+#types3 {
+	// padding-bottom: 150px;
+}
+.getStarted {
+	text-align: center;
+}
+.getStarted button {
+	margin: 50px 0px;
+	background-color: #754638;
+	border-color: #754638;
+}
+.title {
+	padding-top: 5px;
+	font-family: Fantasy, Verdana;
+	font-size: 15px;
+}
+p {
+	font-family: Verdana, sans-serif;
+}
+footer {
+	padding-top: 10px;
+	bottom: 0;
+	font-size: 10px;
+	color: brown;
+}
+.introMain {
+	// margin-top: 40px;
+	background-image: url("../images/coffeeandtea1.jpg");
+	height: 300px;
+	width: 100%;
+	overflow: hidden;
+	
+
+}
+
+.info {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.info img {
+	height: 100px;
+}
+#stepsContainer {
+	background-color: lightgray;
+}
+#step1 {
+	background-image: url("../images/coffee/bags.jpg");
+	height: 200px;
+	color: white;
+	vertical-align: center;
+	font-size: 15px;
+}
+#step1 li, #step2 li, #step3 li {
+	list-style-type: none;
+}
+
+#step2 {
+	padding: 30px;
+	height: 200px;
+	vertical-align: center;
+	font-size: 15px;
+	background-color: #F2F2F2;
+}
+#step2 img {
+	height: 115px;
+	float: left;
+	transform: rotate(-20deg);
+	margin: 15px 50px 15px 5px;
+	border: 3px solid white;
+}
+#step3 {
+	background-color: #200D06;
+	color: white;
+	height: 200px;
+	
+}
+#step3 img {
+	height: 150px;
+	float: right;
+	margin: 25px 60px;
+	border-radius: 10px;
+
+}
+.already, .paymentHeader {
+	text-align: center;
+}
+.form-control input {
+	margin: 0 300px;
+}
+#options {
+padding-top: 30px;
+}
+#deliveryOptions {
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin: auto;
+	background-color: beige;
+}
+#deliveryOptions img {
+	max-height: 250px;
+}
+.famPlan, .indivPlan {
+	background-color: white;
+	box-shadow: 0 0 10px 0;
+	margin: 30px 10px;
+}
+.famPlan button, .indivPlan button {
+	width: 50%;
+	background-color: #754638;
+	border-color: #754638;
+
+	margin: 5px;
+}
+.registration button, .login button {
+	width: 50%;
+	background-color: #3E5D56;
+	border: 3px solid;
+	border-color: #DFC8B9;
+	margin-bottom: 30px;
+}
+.registration button:hover, .login button:hover {
+	background-color: #56746D;
+}
+
+.registration, .login {
+	padding-top: 50px;
+	text-align: center;
+	background-color: #3E5D56;
+	box-shadow: 0 0 10px 0;
+	color: white;
+}

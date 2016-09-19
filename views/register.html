@@ -1,0 +1,44 @@
+<div class="container-fluid">
+	<!-- <div class="registration col-sm-4"> -->
+		
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4 registration">
+			<h1>Registration</h1>
+			<hr>
+				<form ng-submit="register()" id="registration-form">
+
+					<div class="form-group"> <!-- username -->
+						<h4>Username</h4>
+						<input type="text" ng-model="username" placeholder="Enter your username" minlength="4" maxlength="50" 
+						class="form-control">
+					</div>
+
+					<div class="form-group"> <!-- password -->
+						<h4>Password</h4>
+						<input type="password" ng-model="password" placeholder="Enter your password" minlength="4" maxlength="50" 
+						class="form-control">
+					</div>
+				
+					<div class="form-group"> <!-- passconfirm -->
+						<h4>Password Confirmation</h4>
+						<input type="password" ng-model="password2" placeholder="Please confirm your password" minlength="4" maxlength="50" 
+						class="form-control">
+					</div>
+			
+					<div class="form-group"> <!-- email address -->
+						<h4>Enter email address</h4>
+						<input type="email" ng-model="email" placeholder="Enter your email address" minlength="4" maxlength="50" class="form-control">
+					</div>
+
+					<br>
+					<div class="button-holder">
+						<button type="submit" class="btn btn-outline-success">Submit</button>
+					</div>
+			
+				</form>
+			</div>
+		</div>	
+	<div class="row already">
+		<h5>Already registered?   <a ng-href="#/login">Log In</a></h5>
+	</div>
+</div>
