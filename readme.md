@@ -13,7 +13,7 @@
 - Mongo
 ```
 ##This coffeee/tea subscription site was built using Node.js, Express, MongoDB, Mongoose and AngularJS. 
-###Front-end : HTML5m CSS3 and AngularJS
+###Front-end : HTML5, CSS3 and AngularJS
 ###Back-end : Express and MongoDB/Mongoose, Node.js
 ###Security: Bcrypt and token authentication.
 ###Payment Processing: Stripe
