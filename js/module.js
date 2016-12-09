@@ -25,8 +25,10 @@ ecommerceApp.config(function($routeProvider) {
 	.when("/payment", {
 		templateUrl: "views/payment.html",
 		controller: "mainController"
-	});
-});
+	})
+	.otherwise ({redirectTo: "/node-e_commerce"})
+	})
+;
 // // ecommerceApp.config(['$resourceProvider', function($resourceProvider) {
 // //   // Don't strip trailing slashes from calculated URLs
 // //   $resourceProvider.defaults.stripTrailingSlashes = false;

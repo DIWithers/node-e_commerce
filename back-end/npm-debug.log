@@ -1,0 +1,276 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'pm2@latest',
+1 verbose cli   '-g' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 verbose install initial load of /usr/local/lib/package.json
+5 verbose readDependencies loading dependencies from /usr/local/lib/package.json
+6 silly cache add args [ 'pm2@latest', null ]
+7 verbose cache add spec pm2@latest
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: 'pm2@latest',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'pm2',
+8 silly cache add   rawSpec: 'latest',
+8 silly cache add   spec: 'latest',
+8 silly cache add   type: 'tag' }
+9 silly addNamed pm2@latest
+10 verbose addNamed "latest" is being treated as a dist-tag for pm2
+11 info addNameTag [ 'pm2', 'latest' ]
+12 silly mapToRegistry name pm2
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry data Result {
+15 silly mapToRegistry   raw: 'pm2',
+15 silly mapToRegistry   scope: null,
+15 silly mapToRegistry   name: 'pm2',
+15 silly mapToRegistry   rawSpec: '',
+15 silly mapToRegistry   spec: 'latest',
+15 silly mapToRegistry   type: 'tag' }
+16 silly mapToRegistry uri https://registry.npmjs.org/pm2
+17 verbose addNameTag registry:https://registry.npmjs.org/pm2 not in flight; fetching
+18 verbose request uri https://registry.npmjs.org/pm2
+19 verbose request no auth needed
+20 info attempt registry request try #1 at 3:42:52 PM
+21 verbose request id ed3657621c4c5b89
+22 http request GET https://registry.npmjs.org/pm2
+23 http 200 https://registry.npmjs.org/pm2
+24 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+24 verbose headers   etag: '"C99UFDJMDRVINF1JNGB7HKQ4P"',
+24 verbose headers   'content-type': 'application/json',
+24 verbose headers   'content-encoding': 'gzip',
+24 verbose headers   'cache-control': 'max-age=300',
+24 verbose headers   'content-length': '40804',
+24 verbose headers   'accept-ranges': 'bytes',
+24 verbose headers   date: 'Wed, 21 Sep 2016 19:42:52 GMT',
+24 verbose headers   via: '1.1 varnish',
+24 verbose headers   age: '258',
+24 verbose headers   connection: 'keep-alive',
+24 verbose headers   'x-served-by': 'cache-atl6246-ATL',
+24 verbose headers   'x-cache': 'HIT',
+24 verbose headers   'x-cache-hits': '1',
+24 verbose headers   'x-timer': 'S1474486972.470846,VS0,VE0',
+24 verbose headers   vary: 'Accept-Encoding' }
+25 silly get cb [ 200,
+25 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+25 silly get     etag: '"C99UFDJMDRVINF1JNGB7HKQ4P"',
+25 silly get     'content-type': 'application/json',
+25 silly get     'content-encoding': 'gzip',
+25 silly get     'cache-control': 'max-age=300',
+25 silly get     'content-length': '40804',
+25 silly get     'accept-ranges': 'bytes',
+25 silly get     date: 'Wed, 21 Sep 2016 19:42:52 GMT',
+25 silly get     via: '1.1 varnish',
+25 silly get     age: '258',
+25 silly get     connection: 'keep-alive',
+25 silly get     'x-served-by': 'cache-atl6246-ATL',
+25 silly get     'x-cache': 'HIT',
+25 silly get     'x-cache-hits': '1',
+25 silly get     'x-timer': 'S1474486972.470846,VS0,VE0',
+25 silly get     vary: 'Accept-Encoding' } ]
+26 verbose get saving pm2 to /Users/daniellewithers/.npm/registry.npmjs.org/pm2/.cache.json
+27 verbose correctMkdir /Users/daniellewithers/.npm correctMkdir not in flight; initializing
+28 silly addNameTag next cb for pm2 with tag latest
+29 silly addNamed pm2@2.0.15
+30 verbose addNamed "2.0.15" is a plain semver version for pm2
+31 silly mapToRegistry name pm2
+32 silly mapToRegistry using default registry
+33 silly mapToRegistry registry https://registry.npmjs.org/
+34 silly mapToRegistry data Result {
+34 silly mapToRegistry   raw: 'pm2',
+34 silly mapToRegistry   scope: null,
+34 silly mapToRegistry   name: 'pm2',
+34 silly mapToRegistry   rawSpec: '',
+34 silly mapToRegistry   spec: 'latest',
+34 silly mapToRegistry   type: 'tag' }
+35 silly mapToRegistry uri https://registry.npmjs.org/pm2
+36 verbose addRemoteTarball https://registry.npmjs.org/pm2/-/pm2-2.0.15.tgz not in flight; adding
+37 verbose addRemoteTarball [ 'https://registry.npmjs.org/pm2/-/pm2-2.0.15.tgz',
+37 verbose addRemoteTarball   '5ea8d3bea22e27d02a0a4adaf903b192f6f4764c' ]
+38 info retry fetch attempt 1 at 3:42:52 PM
+39 info attempt registry request try #1 at 3:42:52 PM
+40 http fetch GET https://registry.npmjs.org/pm2/-/pm2-2.0.15.tgz
+41 http fetch 200 https://registry.npmjs.org/pm2/-/pm2-2.0.15.tgz
+42 silly fetchAndShaCheck shasum 5ea8d3bea22e27d02a0a4adaf903b192f6f4764c
+43 verbose addTmpTarball /var/folders/vm/rwv8bc8j0734qs5h5269jn5w0000gn/T/npm-3133-c1b36d7b/registry.npmjs.org/pm2/-/pm2-2.0.15.tgz not in flight; adding
+44 verbose addTmpTarball already have metadata; skipping unpack for pm2@2.0.15
+45 verbose correctMkdir /Users/daniellewithers/.npm correctMkdir not in flight; initializing
+46 silly cache afterAdd pm2@2.0.15
+47 verbose afterAdd /Users/daniellewithers/.npm/pm2/2.0.15/package/package.json not in flight; writing
+48 verbose correctMkdir /Users/daniellewithers/.npm correctMkdir not in flight; initializing
+49 verbose afterAdd /Users/daniellewithers/.npm/pm2/2.0.15/package/package.json written
+50 silly install resolved [ { name: 'pm2',
+50 silly install resolved     preferGlobal: true,
+50 silly install resolved     version: '2.0.15',
+50 silly install resolved     engines: { node: '>=0.10' },
+50 silly install resolved     directories: { bin: './bin', lib: './lib', example: './examples' },
+50 silly install resolved     author:
+50 silly install resolved      { name: 'Strzelewicz Alexandre',
+50 silly install resolved        email: 'alexandre@keymetrics.io',
+50 silly install resolved        url: 'https://keymetrics.io' },
+50 silly install resolved     maintainers: [ [Object] ],
+50 silly install resolved     contributors:
+50 silly install resolved      [ [Object],
+50 silly install resolved        [Object],
+50 silly install resolved        [Object],
+50 silly install resolved        [Object],
+50 silly install resolved        [Object],
+50 silly install resolved        [Object],
+50 silly install resolved        [Object],
+50 silly install resolved        [Object],
+50 silly install resolved        [Object],
+50 silly install resolved        [Object],
+50 silly install resolved        [Object],
+50 silly install resolved        [Object],
+50 silly install resolved        [Object] ],
+50 silly install resolved     homepage: 'http://pm2.keymetrics.io/',
+50 silly install resolved     description: 'Production process manager for Node.JS applications with a built-in load balancer.',
+50 silly install resolved     main: 'index.js',
+50 silly install resolved     scripts: { test: 'PM2_CONCURRENT_ACTIONS=1 NODE_ENV=test bash test/pm2_programmatic_tests.sh && NODE_ENV=test bash test/pm2_behavior_tests.sh' },
+50 silly install resolved     keywords:
+50 silly install resolved      [ 'cli',
+50 silly install resolved        'fault tolerant',
+50 silly install resolved        'sysadmin',
+50 silly install resolved        'tools',
+50 silly install resolved        'pm2',
+50 silly install resolved        'logs',
+50 silly install resolved        'log',
+50 silly install resolved        'json',
+50 silly install resolved        'express',
+50 silly install resolved        'hapi',
+50 silly install resolved        'kraken',
+50 silly install resolved        'reload',
+50 silly install resolved        'microservice',
+50 silly install resolved        'programmatic',
+50 silly install resolved        'harmony',
+50 silly install resolved        'node-pm2',
+50 silly install resolved        'production',
+50 silly install resolved        'keymetrics',
+50 silly install resolved        'node.js monitoring',
+50 silly install resolved        'strong-pm',
+50 silly install resolved        'deploy',
+50 silly install resolved        'deployment',
+50 silly install resolved        'daemon',
+50 silly install resolved        'supervisor',
+50 silly install resolved        'nodemon',
+50 silly install resolved        'pm2.io',
+50 silly install resolved        'ghost',
+50 silly install resolved        'ghost production',
+50 silly install resolved        'monitoring',
+50 silly install resolved        'process manager',
+50 silly install resolved        'forever',
+50 silly install resolved        'profiling',
+50 silly install resolved        'probes',
+50 silly install resolved        'forever-monitor',
+50 silly install resolved        'keep process alive',
+50 silly install resolved        'process configuration',
+50 silly install resolved        'clustering',
+50 silly install resolved        'cluster cli',
+50 silly install resolved        'cluster',
+50 silly install resolved        'cron',
+50 silly install resolved        'devops',
+50 silly install resolved        'dev ops' ],
+50 silly install resolved     bin:
+50 silly install resolved      { pm2: './bin/pm2',
+50 silly install resolved        rundev: './bin/rundev',
+50 silly install resolved        'pm2-dev': './bin/pm2-dev',
+50 silly install resolved        'pm2-docker': './bin/pm2-docker' },
+50 silly install resolved     dependencies:
+50 silly install resolved      { async: '1.5',
+50 silly install resolved        chalk: '^1.1',
+50 silly install resolved        chokidar: '^1.6.0',
+50 silly install resolved        'cli-table2': '0.2.0',
+50 silly install resolved        commander: '^2.9',
+50 silly install resolved        cron: '1.1.0',
+50 silly install resolved        debug: '2.2.0',
+50 silly install resolved        eventemitter2: '1.0.5',
+50 silly install resolved        fclone: '1.0.9',
+50 silly install resolved        mkdirp: '0.5.1',
+50 silly install resolved        moment: '^2.14',
+50 silly install resolved        nssocket: '0.6.0',
+50 silly install resolved        pidusage: '^1.0.7',
+50 silly install resolved        'pm2-axon': '3.0.2',
+50 silly install resolved        'pm2-axon-rpc': '0.4.5',
+50 silly install resolved        'pm2-deploy': '^0.3',
+50 silly install resolved        'pm2-multimeter': '0.1.2',
+50 silly install resolved        pmx: '^0.6',
+50 silly install resolved        semver: '^5.2',
+50 silly install resolved        shelljs: '0.7.3',
+50 silly install resolved        'source-map-support': '^0.4',
+50 silly install resolved        vizion: '^0.2',
+50 silly install resolved        yamljs: '0.2.8',
+50 silly install resolved        gkt: 'http://tgz.pm2.io/gkt-1.0.0.tgz' },
+50 silly install resolved     devDependencies: { mocha: '^2.5.3', should: '^10', 'better-assert': '^1.0.0' },
+50 silly install resolved     optionalDependencies: { gkt: 'http://tgz.pm2.io/gkt-1.0.0.tgz' },
+50 silly install resolved     bugs: { url: 'https://github.com/Unitech/pm2/issues' },
+50 silly install resolved     repository: { type: 'git', url: 'git://github.com/Unitech/pm2.git' },
+50 silly install resolved     license: 'AGPL-3.0',
+50 silly install resolved     gitHead: 'd60e98d7be990a0ca64b0e7a42e52e25fdf5a74e',
+50 silly install resolved     _id: 'pm2@2.0.15',
+50 silly install resolved     _shasum: '5ea8d3bea22e27d02a0a4adaf903b192f6f4764c',
+50 silly install resolved     _from: 'pm2@latest',
+50 silly install resolved     _npmVersion: '3.9.6',
+50 silly install resolved     _nodeVersion: '4.4.5',
+50 silly install resolved     _npmUser: { name: 'tknew', email: 'strzelewicz.alexandre@gmail.com' },
+50 silly install resolved     dist:
+50 silly install resolved      { shasum: '5ea8d3bea22e27d02a0a4adaf903b192f6f4764c',
+50 silly install resolved        tarball: 'https://registry.npmjs.org/pm2/-/pm2-2.0.15.tgz' },
+50 silly install resolved     _npmOperationalInternal:
+50 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+50 silly install resolved        tmp: 'tmp/pm2-2.0.15.tgz_1474475497288_0.861254621297121' },
+50 silly install resolved     _resolved: 'https://registry.npmjs.org/pm2/-/pm2-2.0.15.tgz' } ]
+51 info install pm2@2.0.15 into /usr/local/lib
+52 info installOne pm2@2.0.15
+53 verbose installOne of pm2 to /usr/local/lib not in flight; installing
+54 verbose correctMkdir /Users/daniellewithers/.npm/_locks correctMkdir not in flight; initializing
+55 verbose lock using /Users/daniellewithers/.npm/_locks/pm2-d247c27dec6aa07b.lock for /usr/local/lib/node_modules/pm2
+56 silly install write writing pm2 2.0.15 to /usr/local/lib/node_modules/pm2
+57 verbose unbuild lib/node_modules/pm2
+58 silly gentlyRm /usr/local/lib/node_modules/pm2 is being purged from base /usr/local
+59 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/pm2
+60 verbose tar unpack /Users/daniellewithers/.npm/pm2/2.0.15/package.tgz
+61 verbose tar unpacking to /usr/local/lib/node_modules/pm2
+62 silly gentlyRm /usr/local/lib/node_modules/pm2 is being purged
+63 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/pm2
+64 silly gunzTarPerm modes [ '755', '644' ]
+65 error tar.unpack untar error /Users/daniellewithers/.npm/pm2/2.0.15/package.tgz
+66 verbose unlock done using /Users/daniellewithers/.npm/_locks/pm2-d247c27dec6aa07b.lock for /usr/local/lib/node_modules/pm2
+67 verbose fstream_path /usr/local/lib/node_modules/pm2
+68 verbose fstream_type Directory
+69 verbose fstream_class DirWriter
+70 verbose stack Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/pm2'
+70 verbose stack     at Error (native)
+71 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25
+71 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53
+71 verbose fstream_stack FSReqWrap.oncomplete (fs.js:82:15)
+72 verbose cwd /Users/daniellewithers/Desktop/DigitalCrafts/7-16immersive/unit-3/node-e_commerce/back-end
+73 error Darwin 15.6.0
+74 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "pm2@latest" "-g"
+75 error node v4.4.7
+76 error npm  v2.15.8
+77 error path /usr/local/lib/node_modules/pm2
+78 error code EACCES
+79 error errno -13
+80 error syscall mkdir
+81 error Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/pm2'
+81 error     at Error (native)
+81 error  { [Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/pm2']
+81 error   errno: -13,
+81 error   code: 'EACCES',
+81 error   syscall: 'mkdir',
+81 error   path: '/usr/local/lib/node_modules/pm2',
+81 error   fstream_type: 'Directory',
+81 error   fstream_path: '/usr/local/lib/node_modules/pm2',
+81 error   fstream_class: 'DirWriter',
+81 error   fstream_stack:
+81 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25',
+81 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53',
+81 error      'FSReqWrap.oncomplete (fs.js:82:15)' ] }
+82 error Please try running this command again as root/Administrator.
+83 verbose exit [ -13, true ]
+84 verbose unbuild lib/node_modules/pm2
+85 silly gentlyRm /usr/local/lib/node_modules/pm2 is being purged from base /usr/local
+86 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/pm2
