@@ -87,6 +87,137 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 
 // 		});
 // 	}
+//Use cookies for shopping cart!
+
+$scope.addToCart = function(itemID, quantity, amount){
+	var oldCart = $cookies.get('cartItems');
+	if (oldCart === undefined){
+		var newCart = itemID;
+	}
+	else {
+		newCart = oldCart + "," + itemID;
+	}
+	console.log(oldCart);
+	console.log(newCart);
+	
+	var oldQuantity = $cookies.get('cartQuantity');
+	if (oldQuantity === undefined){
+		var newQuantity = quantity;
+	}
+	else {
+		newQuantity = oldQuantity + "," + quantity;
+	}
+	
+	var oldAmount = $cookies.get('cartAmount');
+	if (oldAmount === undefined){
+		var newAmount = amount;
+	}
+	else {
+		newAmount = oldAmount + "," + amount
+	}
+
+	$cookies.put('cartItems', newCart);
+	$cookies.put('cartQuantity', newQuantity);
+	$cookies.put('cartAmount', newAmount);
+	
+	newQuantity = newQuantity.split(",");
+	console.log(quantity);
+	console.log(newQuantity);
+	var cartItems = newCart.split(",");
+		$scope.item = $cookies.get('cartItems').split(',');
+		$scope.quantity = $cookies.get('cartQuantity').split(',');
+		$scope.amount = $cookies.get('cartAmount').split(',');
+		var carts = [];
+		for(var i = 0; i < cartItems.length; i++){
+			carts.push({
+					item: cartItems[i],
+					quantity: newQuantity[i],
+					amount: newAmount[i]
+			})
+			console.log(carts);	
+		}
+		$scope.carts = carts;
+}
+// Remove an item from the shopping cart!
+    $scope.remove = function(index) {
+    	console.log(index);
+    	var removeSelection = $scope.carts[index];
+    	$scope.carts.splice(index, 1);
+    	var newCart = $cookies.get('cartItems').split(',');
+		var newQuantity = $cookies.get('cartQuantity').split(',');
+		var newAmount = $cookies.get('cartAmount').split(',');
+		newCart.splice(index,1);
+		newQuantity.splice(index,1);
+		newAmount.splice(index, 1);
+
+		if (newCart.length == 1){
+			newCart = newCart[0];
+			newQuantity = newQuantity[0];
+			newAmount = newAmount[0];
+		}
+
+		else {
+			newCart = newCart.join(',');
+			newQuantity = newQuantity.join(',');
+			newAmount = newAmount.join(',');
+		}
+		//console.log(newCart);
+		$cookies.put('cartItems', newCart);
+		$cookies.put('cartQuantity', newQuantity);
+		$cookies.put('cartAmount', newAmount);
+		$scope.total = $scope.getTotal();
+		$scope.numItems = $scope.getNumItems();
+};
+$scope.getTotal = function() {
+    var total = 0;
+    var cartinfo = $scope.getCart();
+    console.log(cartinfo);
+    for (var i = 0; i < cartinfo.length; i++) {
+        var carts = cartinfo[i];
+        total += parseInt(carts.quantity * carts.amount);
+    }
+    return total;
+}
+
+$scope.total = $scope.getTotalPrice();
+console.log($scope.total)
+
+
+$scope.getNumItems = function() {
+    var numItems = 0;
+    var cartinfo = $scope.getCart();
+    console.log(cartinfo);
+    for (var i = 0; i < cartinfo.length; i++) {
+        var carts = cartinfo[i];
+        numItems += parseInt(carts.quantity);
+    }
+    return numItems;
+}
+
+$scope.numItems = $scope.getNumItems();
+console.log($scope.numItems)
+
+$scope.checkout = function(){
+	 	console.log($scope.name);
+	 	$http.post(apiPath + '/checkoutData', {
+	 		name: $scope.name,
+	 		home: $scope.home,
+	 		deliver: $scope.deliver,
+	 		address: $scope.address,
+	 		city: $scope.city,
+	 		zip: $scope.zip,
+	 		phone: $scope.phone,
+	 		details: $scope.details
+	 	}).then(function successCallback(response){
+	 		console.log(response);
+	 		if(response.data.message == 'added'){
+	 			$location.path('/cart');
+	 		}
+	 	}, function errorCallback(response){
+	 		console.log(response);
+	 	});
+	 };
+$scope.name = $scope.checkout();
     $scope.payOrder = function(userOptions) {
         $scope.errorMessage = "";
         var handler = StripeCheckout.configure({
