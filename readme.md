@@ -21,7 +21,8 @@
 ## Sample Code
 ###Customer has options: weekly or monthly:
 ![options](images/eCommercesubscription.png "E-Commerce options")
-```//This option to make it a subscription site:
+```
+
 	$scope.weekly = function(){
 		$http.post(apiPath + '/options', {
 			token: $cookies.get('token'),
