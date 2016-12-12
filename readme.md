@@ -19,7 +19,7 @@
 ###Payment Processing: Stripe
 ![process](images/eCommerceIntro.png "E-Commerce Process")
 ## Sample Code
-###Customer has options: weekly or monthly:
+###Customer has options, weekly or monthly:
 ![options](images/eCommercesubscription.png "E-Commerce options")
 ```
 
