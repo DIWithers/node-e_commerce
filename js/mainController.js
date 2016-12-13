@@ -359,7 +359,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
         $scope.errorMessage = "";
         var handler = StripeCheckout.configure({
             key: "pk_test_wvuS7o4sXJu8KdfvJ2VcwyBb",
-            image: '../images/bev-button.jpeg',
+            image: '../node-e_commerce/images/bev-button.jpeg',
             locale: 'auto',
             token: function(token) {
                 console.log("The token Id is: ");
