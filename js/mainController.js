@@ -328,11 +328,13 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 // $scope.name = $scope.checkout();
     //Check for previous visit, make it easy for the cust, this info will also be used to populate other fields
 	function checkToken(){
+		console.log($cookies.get("token"));
 		if(($cookies.get('token') != undefined)){	
 			$http.get(apiPath + '/getUserData?token=' + $cookies.get('token'),{
 			}).then(function successCallback(response){
 				if(response.data.failure == 'badToken'){
 					console.log("bad token, check token");
+					console.log(response);
 					$location.path('/login'); //need to log in again
 				}else if(response.data.failure == 'noToken'){
 					console.log("no token exists");
@@ -352,7 +354,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			};
 		}else if(($location.path() != '/') && ($location.path() != '/register') && ($location.path() != '/login') && ($cookies.get('token') == undefined)){
 			console.log("token undefined");
-			$location.path('/login');
+			$location.path('/');
 		};
 	};	
     $scope.payOrder = function(userOptions) {
