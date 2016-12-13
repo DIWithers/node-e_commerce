@@ -39,7 +39,7 @@
 		})
 	};
 
-	//if a customer selects monthly option
+	//if a customer selects family option
 	$scope.familyPlan = function(){
 		console.log("Fam plan selected");
 		$http.post(apiPath + '/options', {
@@ -56,4 +56,4 @@
 ### Stripe:
 ![stripe](images/stripe.png "stripe")
 ### Update:
-#### Ever since the new Mac OS Update, alot of my projects became buggy across the board. I am still fixing the checkout option because of this, check back soon!
+#### I'll be honest, cookies aren't saving tokens anymore. I'm not sure why after my new OS update (still researching, I expect progress soon). I wanted to get a nice checkout screenshot (like from before, I should have taken the screenshot then!)...
