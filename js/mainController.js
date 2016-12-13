@@ -13,6 +13,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			email: $scope.email
 		}).then(function successCallback(response) {
 			console.log("success");
+			$location.path("/options");
 			console.log($scope.username);
 			if (response.data.message === "added") { //already registered, move fwd
 				$cookies.put("token", response.data.token);
@@ -27,11 +28,13 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 
 	};
 	$scope.login = function() {
+		console.log("successBefore");
 		$http.post(apiPath + "/login", {
 			username: $scope.username,
 			password: $scope.password
 		}).then(function successCallback(response) {
 			console.log(response.data.token);
+			console.log("successAfter");
 			if(response.data.success === "userFound") {
 				$cookies.put("token", response.data.token);
 				$cookies.put("username", $scope.username);
