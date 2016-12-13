@@ -19,42 +19,41 @@
 ###Payment Processing: Stripe
 ![process](images/eCommerceIntro.png "E-Commerce Process")
 ## Sample Code
-###Customer has options, weekly or monthly:
+###Customer has options, individual or family plan:
 ![options](images/eCommercesubscription.png "E-Commerce options")
 ```
-
-	$scope.weekly = function(){
+//This option to make it a subscription site:
+	$scope.individualPlan = function(){
+		console.log("Indiv plan selected");
+		console.log($cookies.get('username'));
+		// $location.path('/delivery');
 		$http.post(apiPath + '/options', {
-			token: $cookies.get('token'),
-			frequency: 'Weekly',
+			// token: $cookies.get('token'),
+			plan: "Individual",
 			total: 7.00
 		}).then(function successCallback(response){
-			if(response.data.post == 'optionAdded'){
-				$scope.choiceMade = true;
-				$timeout(function(){
-					$location.path('/delivery');
-				}, 1500);
-			}	
+			$location.path('/delivery');	
 		}, function errorCallback(response){
+			console.log(error);
 			console.log(response);
 		})
 	};
 
 	//if a customer selects monthly option
-	$scope.monthly = function(){
+	$scope.familyPlan = function(){
+		console.log("Fam plan selected");
 		$http.post(apiPath + '/options', {
 			token: $cookies.get('token'),
-			frequency: 'Monthly',
+			plan: "Family",
 			total: 18.00
 		}).then(function successCallback(response){
-			if(response.data.post == 'optionAdded'){
-				$scope.choiceMade = true;
-				$timeout(function(){
-					$location.path('/delivery');
-				}, 1500);
-			}
+			$location.path('/delivery');
 		}, function errorCallback(response){
 			console.log(response);
 		})
 	}
 ```
+### Stripe:
+![stripe](images/stripe.png "stripe")
+### Update:
+#### Ever since the new Mac OS Update, alot of my projects became buggy across the board. I am still fixing the checkout option because of this, check back soon!
