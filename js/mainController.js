@@ -114,8 +114,8 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			state: $scope.state,
 			zipCode: $scope.zipCode
 		}).then(function successCallback(response){
-			console.log(response.data.post);
-			$location.path('/delivery');
+			console.log(response.data.message);
+			$location.path('/payment');
 		}, function errorCallback(response){
 			console.log(response);
 		})	
@@ -172,25 +172,25 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 	]
 	//home, login, register != run
 	//different controller
-// 	if (location.path === "/options") {
-// 		$http.get(apiPath + "/getUserData?token=" + $cookies.get("token"))
-// 		.then(function successCallback(response) {
-// 			//response.data.xxx = whatever res.json was in express
-// 			if(response.data.failure === "badToken") {
-// 				// $location.path = "/login"; //Goodbye
-// 			}
-// 			else if(response.data.failure === "noToken") {
-// 				// $location.path = "/login"; //No token, bye
-// 			}
-// 			else {
-// 				//token is good, response.data will have their stuff in it
-// 				$scope.username = response.data.username;
-// 			}
+	if (location.path === "/options") {
+		$http.get(apiPath + "/getUserData?token=" + $cookies.get("token"))
+		.then(function successCallback(response) {
+			//response.data.xxx = whatever res.json was in express
+			if(response.data.failure === "badToken") {
+				// $location.path = "/login"; //Goodbye
+			}
+			else if(response.data.failure === "noToken") {
+				// $location.path = "/login"; //No token, bye
+			}
+			else {
+				//token is good, response.data will have their stuff in it
+				$scope.username = response.data.username;
+			}
 
-// 		}, function errorCallback(response) {
+		}, function errorCallback(response) {
 
-// 		});
-// 	}
+		});
+	}
 //Use cookies for shopping cart!
 //As opposed to a weekly or monthly subscription, we're using the shopping cart.
 // $scope.addToCart = function(itemID, quantity, amount){
@@ -351,7 +351,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
         });
         handler.open({
             name: 'DC Roasters',
-            description: 'A Better Way To Grind',
+            description: 'Rise and Shine!',
             amount: $scope.total * 100
         });
     };
