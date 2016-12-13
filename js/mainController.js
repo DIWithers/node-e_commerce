@@ -2,24 +2,26 @@
 ecommerceApp.controller("mainController", function($scope, $http, $location, $cookies, $rootScope) {
 
 	var apiPath = "http://54.191.187.253:3000";
-	// var apiPath = "http://localhost:8000";
+	// var apiPath = "http://127.0.0.1:3000";
 
 
 	$scope.register = function() {
-		// console.log($scope.username);
 		$http.post(apiPath + "/register", {
 			username: $scope.username,
 			password: $scope.password,
 			password2: $scope.password2,
 			email: $scope.email
 		}).then(function successCallback(response) {
-			console.log(response);
+			console.log("success");
+			console.log($scope.username);
 			if (response.data.message === "added") { //already registered, move fwd
 				$cookies.put("token", response.data.token);
+				console.log(response.data.token);
 				$cookies.put("username", $scope.username);
 				$location.path("/options"); 
 			}
 		}, function errorCallback(response) {
+			console.log("error")
 			console.log(response);
 		});
 

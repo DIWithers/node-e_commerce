@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require("mongoose");
-var mongoUrl = "mongodb://localhost:27017/ecommerce"; //ecommerse is database
+var mongoUrl = "mongodb://127.0.0.1:27017/ecommerce"; //ecommerce is database
 var User = require("../models/users");
 mongoose.connect(mongoUrl);
 
