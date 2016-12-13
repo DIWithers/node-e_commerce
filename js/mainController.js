@@ -20,7 +20,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 				$cookies.put("token", response.data.token);
 				console.log(response.data.token);
 				$cookies.put("username", $scope.username);
-				checkToken();
+				// checkToken();
 				$location.path("/options"); 
 			}
 		}, function errorCallback(response) {
@@ -41,7 +41,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			if(response.data.success === "userFound") {
 				$cookies.put("token", response.data.token);
 				$cookies.put("username", $scope.username);
-				checkToken();
+				// checkToken();
 				$location.path("/options");
 				$rootScope.loggedIn = true;
 				console.log("Logged In successfully");
