@@ -2,6 +2,7 @@
 ecommerceApp.controller("mainController", function($scope, $http, $location, $cookies, $rootScope) {
 
 	var apiPath = "http://danielleivywithers.com/node-e_commerce/#:3000";
+	checkToken();
 	// var apiPath = "http://127.0.0.1:3000";
 
 
