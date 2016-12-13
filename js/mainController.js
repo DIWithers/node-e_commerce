@@ -79,11 +79,17 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 		console.log($cookies.get('username'));
 		// $location.path('/delivery');
 		$http.post(apiPath + '/options', {
-			token: $cookies.get('token'),
+			// token: $cookies.get('token'),
 			plan: "Individual",
 			total: 7.00
 		}).then(function successCallback(response){
+			if(response.data.message == 'optionAdded'){
+				$scope.choiceMade = true;
+				console.log("choiceMade");
+				console.log(response);
+				$timeout(function(){
 					$location.path('/delivery');
+				}, 1500);
 			}	
 		}, function errorCallback(response){
 			console.log(error);
@@ -99,8 +105,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			plan: "Family",
 			total: 18.00
 		}).then(function successCallback(response){
-					$location.path('/delivery');
-			}
+			$location.path('/delivery');
 		}, function errorCallback(response){
 			console.log(response);
 		})
@@ -117,12 +122,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			zipCode: $scope.zipCode
 		}).then(function successCallback(response){
 			console.log(response.data.post);
-			if(response.data.post = 'addressAdded'){
-				$scope.infoAdded = true;
-				$timeout(function(){
-				$location.path('/payment');
-				}, 3000);
-			}
+			$location.path('/delivery');
 		}, function errorCallback(response){
 			console.log(response);
 		})	
