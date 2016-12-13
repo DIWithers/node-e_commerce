@@ -26,9 +26,8 @@
 	$scope.individualPlan = function(){
 		console.log("Indiv plan selected");
 		console.log($cookies.get('username'));
-		// $location.path('/delivery');
 		$http.post(apiPath + '/options', {
-			// token: $cookies.get('token'),
+			token: $cookies.get('token'),
 			plan: "Individual",
 			total: 7.00
 		}).then(function successCallback(response){
