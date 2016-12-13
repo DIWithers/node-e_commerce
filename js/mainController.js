@@ -76,6 +76,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 //This option to make it a subscription site:
 	$scope.individualPlan = function(){
 		console.log("Indiv plan selected");
+		console.log(User.token);
 		$http.post(apiPath + '/options', {
 			token: $cookies.get('token'),
 			plan: "Individual",
