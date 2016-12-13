@@ -14,7 +14,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			email: $scope.email
 		}).then(function successCallback(response) {
 			console.log("success");
-			console.log(reponse.data);
+			console.log(response.data);
 			$location.path("/options");
 			console.log($scope.username);
 			if (response.data.message === "added") { //already registered, move fwd
