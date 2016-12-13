@@ -108,6 +108,7 @@ router.post("/login", function(req, res, next) {
 			var loginResult = bcrypt.compareSync(req.body.password, document.password); //(english, hashed password)
 			var token = randToken(32);
 			var date = Date.now();
+			console.log(token);
 			var tokenExpDate = date + (30);
 			if (loginResult) {
 				//pw correct, login
