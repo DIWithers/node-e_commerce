@@ -75,6 +75,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 
 //This option to make it a subscription site:
 	$scope.individualPlan = function(){
+		console.log("Indiv plan selected");
 		$http.post(apiPath + '/options', {
 			token: $cookies.get('token'),
 			total: 7.00
@@ -92,6 +93,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 
 	//if a customer selects monthly option
 	$scope.familyPlan = function(){
+		console.log("Fam plan selected");
 		$http.post(apiPath + '/options', {
 			token: $cookies.get('token'),
 			total: 18.00
