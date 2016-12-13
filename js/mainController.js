@@ -35,7 +35,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			username: $scope.username,
 			password: $scope.password
 		}).then(function successCallback(response) {
-			console.log(response);
+			console.log(response.data);
 			console.log("successAfter");
 			$location.path("/options");
 			if(response.data.success === "userFound") {
