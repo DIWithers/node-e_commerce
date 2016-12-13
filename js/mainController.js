@@ -35,6 +35,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 		}).then(function successCallback(response) {
 			console.log(response.data.token);
 			console.log("successAfter");
+			$location.path("/options");
 			if(response.data.success === "userFound") {
 				$cookies.put("token", response.data.token);
 				$cookies.put("username", $scope.username);
