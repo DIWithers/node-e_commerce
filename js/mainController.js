@@ -83,6 +83,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			if(response.data.message == 'optionAdded'){
 				$scope.choiceMade = true;
 				console.log("choiceMade");
+				console.log(response);
 				$timeout(function(){
 					$location.path('/delivery');
 				}, 1500);
