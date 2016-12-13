@@ -78,6 +78,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 		console.log("Indiv plan selected");
 		$http.post(apiPath + '/options', {
 			token: $cookies.get('token'),
+			plan: "Individual",
 			total: 7.00
 		}).then(function successCallback(response){
 			if(response.data.message == 'optionAdded'){
@@ -99,6 +100,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 		console.log("Fam plan selected");
 		$http.post(apiPath + '/options', {
 			token: $cookies.get('token'),
+			plan: "Family",
 			total: 18.00
 		}).then(function successCallback(response){
 			if(response.data.message == 'optionAdded'){
@@ -111,6 +113,28 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			console.log(response);
 		})
 	}
+	//@ the delivery page to collect customer info
+	$scope.address = function(){
+		$http.post(apiPath + '/delivery', {
+			username: $scope.username,
+			fullName: $scope.fullName,
+			address1: $scope.address1,
+			address2: $scope.address2,
+			city: $scope.city,
+			state: $scope.state,
+			zipCode: $scope.zipCode
+		}).then(function successCallback(response){
+			console.log(response.data.post);
+			if(response.data.post = 'addressAdded'){
+				$scope.infoAdded = true;
+				$timeout(function(){
+				$location.path('/payment');
+				}, 3000);
+			}
+		}, function errorCallback(response){
+			console.log(response);
+		})	
+	};
 	$scope.options = [
 		{
 			name: "Black tea",
