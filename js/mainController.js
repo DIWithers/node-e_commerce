@@ -2,7 +2,6 @@
 ecommerceApp.controller("mainController", function($scope, $http, $location, $cookies, $rootScope) {
 
 	var apiPath = "http://danielleivywithers.com/node-e_commerce/#:3000";
-	checkToken();
 	// var apiPath = "http://127.0.0.1:3000";
 
 
@@ -351,6 +350,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 
 			};
 		}else if(($location.path() != '/') && ($location.path() != '/register') && ($location.path() != '/login') && ($cookies.get('token') == undefined)){
+			console.log("token undefined");
 			$location.path('/login');
 		};
 	};	
