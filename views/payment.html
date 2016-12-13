@@ -4,9 +4,75 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-10">
-			<div class="row"><h2>Choices</h2></div>
-			<div class="row"><h2>Delivery Information</h2></div>
-			<div class="row"><h2>Current Charges</h2></div>
+			<<div class='row'>
+		<form class='form-horizontal'>
+			<div class='form-group pay'>
+				<h3>Order Details</h3>
+			</div>
+			<div class='form-group pay'>
+				<label for='plan' class='col-sm-3 control-label'>Delivery Plan: </label>
+				<div>
+					<p>{{userInfo.document.plan}}</p>
+				</div>
+			</div>
+
+			<div class='form-group pay'>
+				<h3>Shipping Details</h3>
+			</div>
+			<div class='form-group pay'>
+				<label for='fullName' class='col-sm-3 control-label'>Full Name: </label>
+				<div>
+					<p>{{userInfo.document.fullName}}</p>
+				</div>
+			</div>
+			<div class='form-group pay'>
+				<label for='address1' class='col-sm-3 control-label'>Address: </label>
+				<div>
+					<p>{{userInfo.document.address1}}</p>
+				</div>
+			</div>
+			<div class='form-group pay'>
+				<label for='address2' class='col-sm-3 control-label'>Address 2: </label>
+				<div>
+					<p>{{userInfo.document.address2}}</p>
+				</div>
+			</div>
+			<div class='form-group pay'>
+				<label for='city' class='col-sm-3 control-label'>City: </label>
+				<div>
+					<p>{{userInfo.document.city}}</p>
+				</div>
+			</div>
+			<div class='form-group pay'>
+				<label for='state' class='col-sm-3 control-label'>State: </label>
+				<div>
+					<p>{{userInfo.document.state}}</p>
+				</div>
+			</div>
+			<div class='form-group pay'>
+				<label for='zipCode' class='col-sm-3 control-label'>Zip Code: </label>
+				<div>
+					<p>{{userInfo.document.zipCode}}</p>
+				</div>
+			</div>
+
+			<div class='form-group pay'>
+				<h3>Grand Total</h3>
+			</div>
+
+			<div class='form-group pay'>
+				<label for='shipping' class='col-sm-3 control-label'>Shipping: </label>
+				<div>
+					<p>FREE</p>
+				</div>
+			</div>
+
+			<div class='form-group pay'>
+				<label for='total' class='col-sm-3 control-label'>Total: </label>
+				<div ng-model='total'>
+					<p>$ {{userInfo.document.total}}</p>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="row">
