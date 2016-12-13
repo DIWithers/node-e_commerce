@@ -108,52 +108,52 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 	}
 	$scope.options = [
 		{
-			name: Black tea,
-			type: tea
+			name: "Black tea",
+			type: "tea"
 		},
 		{
-			name: Green tea,
-			type: tea
+			name: "Green tea",
+			type: "tea"
 		},
 		{
-			name: White tea,
-			type: tea
+			name: "White tea",
+			type: "tea"
 		},
 		{
-			name: Oolang Tea,
-			type: tea
+			name: "Oolang Tea",
+			type: "tea"
 		},
 		{
-			name: Mijito Tea,
-			type: tea
+			name: "Mijito Tea",
+			type: "tea"
 		},
 		{
-			name: Rooibos Tea,
-			type: tea
+			name: "Rooibos Tea",
+			type: "tea"
 		},
 		{
-			name: Peach Tea,
-			type: tea
+			name: "Peach Tea",
+			type: "tea"
 		},
 		{
-			name: Iced Tea,
-			type: tea
+			name: "Iced Tea",
+			type: "tea"
 		},
 		{
-			name: Espresso Coffee,
-			type: coffee
+			name: "Espresso Coffee",
+			type: "coffee"
 		},
 		{
-			name: Columbian Coffee,
-			type: coffee
+			name: "Columbian Coffee",
+			type: "coffee"
 		},
 		{
-			name: French Road Coffee,
-			type: coffee
+			name: "French Road Coffee",
+			type: "coffee"
 		},
 		{
-			name: Breakfast Blend Coffee,
-			type: coffee
+			name: "Breakfast Blend Coffee",
+			type: "coffee"
 		}
 	]
 	//home, login, register != run
