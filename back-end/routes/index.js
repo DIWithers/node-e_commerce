@@ -106,11 +106,19 @@ router.post("/login", function(req, res, next) {
 		else {
 			//Run comparesync - first param is the english pw, second param is the hash. Will return true if equal
 			var loginResult = bcrypt.compareSync(req.body.password, document.password); //(english, hashed password)
+			var token = randToken(32);
+			var date = Date.now();
+			var tokenExpDate = date + (30);
 			if (loginResult) {
 				//pw correct, login
 				res.json({
-					success: "userFound"
+					success: "userFound",
+					username: document.username,
+					token: token,
+					tokenExpDate: tokenExpDate
 				});
+				console.log("token:");
+				console.log(token);
 			}
 			else {
 				res.json({
