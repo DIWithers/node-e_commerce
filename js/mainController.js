@@ -104,7 +104,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 		})
 	}
 	//@ the delivery page to collect customer info
-	$scope.address = function(){
+	$scope.deliver = function(){
 		$http.post(apiPath + '/delivery', {
 			username: $scope.username,
 			fullName: $scope.fullName,
