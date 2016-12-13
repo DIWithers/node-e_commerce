@@ -11,7 +11,7 @@ var stripe = require("stripe")(config.secretTestKey);
 
 router.post("/stripe", function(req, res,next) {
 	stripe.charges.create({
-  		amount: req.body.amount,
+  		amount: 7.00,
   		currency: "usd",
   		source: req.body.stripeToken, // obtained with Stripe.js
   		// description: "Charge for michael.smith@example.com" //opt.
@@ -130,7 +130,7 @@ router.post("/options", function(req, res, next) {
 		}
 	).exec();
 	res.json({
-		post: 'optionAdded'
+		message: 'optionAdded'
 	});
 	
 });
@@ -145,7 +145,7 @@ router.post('/delivery', function(req, res, next){
 		}
 	).exec();
 		res.json({
-		post: 'addressAdded'
+		message: 'addressAdded'
 	});
 });
 

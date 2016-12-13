@@ -80,13 +80,14 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			token: $cookies.get('token'),
 			total: 7.00
 		}).then(function successCallback(response){
-			if(response.data.post == 'optionAdded'){
-				$scope.myChoice = true;
+			if(response.data.message == 'optionAdded'){
+				$scope.choiceMade = true;
 				$timeout(function(){
 					$location.path('/delivery');
 				}, 1500);
 			}	
 		}, function errorCallback(response){
+			console.log(error);
 			console.log(response);
 		})
 	};
@@ -98,8 +99,8 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			token: $cookies.get('token'),
 			total: 18.00
 		}).then(function successCallback(response){
-			if(response.data.post == 'optionAdded'){
-				$scope.myChoice = true;
+			if(response.data.message == 'optionAdded'){
+				$scope.choiceMade = true;
 				$timeout(function(){
 					$location.path('/delivery');
 				}, 1500);
