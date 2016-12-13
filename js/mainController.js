@@ -74,14 +74,13 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 	}
 
 //This option to make it a subscription site:
-	$scope.weekly = function(){
+	$scope.individualPlan = function(){
 		$http.post(apiPath + '/options', {
 			token: $cookies.get('token'),
-			frequency: 'Weekly',
 			total: 7.00
 		}).then(function successCallback(response){
 			if(response.data.post == 'optionAdded'){
-				$scope.choiceMade = true;
+				$scope.myChoice = true;
 				$timeout(function(){
 					$location.path('/delivery');
 				}, 1500);
@@ -92,14 +91,13 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 	};
 
 	//if a customer selects monthly option
-	$scope.monthly = function(){
+	$scope.familyPlan = function(){
 		$http.post(apiPath + '/options', {
 			token: $cookies.get('token'),
-			frequency: 'Monthly',
 			total: 18.00
 		}).then(function successCallback(response){
 			if(response.data.post == 'optionAdded'){
-				$scope.choiceMade = true;
+				$scope.myChoice = true;
 				$timeout(function(){
 					$location.path('/delivery');
 				}, 1500);
@@ -108,6 +106,56 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			console.log(response);
 		})
 	}
+	$scope.options = [
+		{
+			name: Black tea,
+			type: tea
+		},
+		{
+			name: Green tea,
+			type: tea
+		},
+		{
+			name: White tea,
+			type: tea
+		},
+		{
+			name: Oolang Tea,
+			type: tea
+		},
+		{
+			name: Mijito Tea,
+			type: tea
+		},
+		{
+			name: Rooibos Tea,
+			type: tea
+		},
+		{
+			name: Peach Tea,
+			type: tea
+		},
+		{
+			name: Iced Tea,
+			type: tea
+		},
+		{
+			name: Espresso Coffee,
+			type: coffee
+		},
+		{
+			name: Columbian Coffee,
+			type: coffee
+		},
+		{
+			name: French Road Coffee,
+			type: coffee
+		},
+		{
+			name: Breakfast Blend Coffee,
+			type: coffee
+		}
+	]
 	//home, login, register != run
 	//different controller
 // 	if (location.path === "/options") {

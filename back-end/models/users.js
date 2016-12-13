@@ -7,6 +7,14 @@ var User = new Schema({
 	email: {type: String, required: true},
 	token: {type: String, required: true},
 	tokenExpDate : Date
+	frequency: String,
+	total: Number,
+	fullName: String,
+	address1: String,
+	address2: String,
+	city: String,
+	state: String,
+	zipCode: String
 });
 
 module.exports = mongoose.model("Users", User) //name of collection, Schema

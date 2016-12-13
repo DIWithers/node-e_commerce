@@ -1,5 +1,5 @@
 <div class="container" id="options">
-	<div class="row">
+	<div class="row"> 
 		<div class="col-sm-2">
 			<button type="button" class="btn btn-outline-info"><a href="#/options#deliveryOptions">Go To Delivery Options</a></button>
 		</div>
@@ -28,7 +28,7 @@
 			<p>Oo-la-la, artisan crafted with a distinctive profile</p>
 		</div>
 	</div>
-		<div class="row" id="types2">
+	<div class="row" id="types2">
 		
 		<div class="col-md-3">
 			<img src="images/tea/mijito-Marmalad-herbal.jpg">
@@ -51,7 +51,7 @@
 			<p>Specially blended for icing</p>
 		</div>
 	</div>
-		<div class="row" id="types3">
+	<div class="row" id="types3">
 		<h2>Coffees</h2>
 		<div class="col-md-3">
 			<img src="images/coffee/dark-beans.jpg">
@@ -73,29 +73,27 @@
 			<p class="title">Breakfast Blend</p>
 			<p>Medium Roast - The perfect thing to get you going in the A.M.!</p>
 		</div>
-		</div>
-		<div class="row" id="deliveryOptions">
-			<div class="col-sm-5 col-sm-offset-1">
-				<div class="col-sm-12 indivPlan">
-					<h2>Individual Plan</h2>
-					<p>For those who drink alone</p>
-					<img src="../node-e_commerce/images/drinker.jpg" class="img-responsive">
-					<h4>Cups per week:  14</h4>
-					<h4>Price per cup:  $.50</h4>
-					<h4>Weekly total:  $7.00</h4>
-					 <select class="btn btn-default dropdown" ng-model="pickType" ng-options="type.option for type in types">
-						<option value="?" selected="selected"></option>
-						<option label="Black tea" value="type:1">Black tea</option>
-						<option label="Green tea" value="type:2">Green tea</option>
-						<option label="White tea" value="type:3">White tea</option>
-					</select>
-					<div class="button-holder">
-						<button type="submit" class="btn btn-success">SUBMIT</button>
-					</div>
-					<p>Shipping is always free.</p>
-					<p>Skip any week. Cancel any time.</p>
+	</div>
+		<!-- FUTURE - USE ANGULAR FOR THE LIST ABOVE -->
+	<div class="row" id="deliveryOptions">
+		<div class="col-sm-5 col-sm-offset-1">
+			<div class="col-sm-12 indivPlan">
+				<h2>Individual Plan</h2>
+				<p>For those who drink alone</p>
+				<img src="../node-e_commerce/images/drinker.jpg" class="img-responsive">
+				<h4>Cups per week:  14</h4>
+				<h4>Price per cup:  $.50</h4>
+				<h4>Weekly total:  $7.00</h4>
+				 <select class="btn btn-default dropdown" ng-model="myChoiceI" ng-options="option in options">
+
+				</select>
+				<div class="button-holder">
+					<button type="submit" class="btn btn-success" ng-click="individualPlan()">SUBMIT</button>
 				</div>
+				<p>Shipping is always free.</p>
+				<p>Skip any week. Cancel any time.</p>
 			</div>
+		</div>
 			<div class="col-sm-5">
 				<div class="col-sm-12 famPlan">
 					<h2>Family Plan</h2>
@@ -104,19 +102,20 @@
 					<h4>Cups per week:  40</h4>
 					<h4>Price per cup:  $.45</h4>
 					<h4>Weekly total:  $18.00</h4>
-					<select class="btn btn-default dropdown" ng-model="pickType" ng-options="type.option for type in types">
-						<option value="?" selected="selected"></option>
-						<option label="Black tea" value="type:1">Black tea</option>
-						<option label="Green tea" value="type:2">Green tea</option>
-						<option label="White tea" value="type:3">White tea</option>
+					<select class="btn btn-default dropdown" ng-model="myChoiceF" ng-options="option in options">
 					</select>
 					<div class="button-holder">
-						<button type="submit" class="btn btn-success">SUBMIT</button>
+						<button type="submit" class="btn btn-success" ng-click="familyPlan()">SUBMIT</button>
 					</div>
 					<p>Shipping is always free.</p>
 					<p>Skip any week. Cancel any time.</p>
 				</div>
 			</div>
-		</div>
-
-	
+	</div>
+		<!-- Cust needs confirmation of selection -->
+		<div class='row choice' ng-show="choiceMade">
+			<div class='col-sm-4'>
+				<h5>Great choice! You're almost done.</h5>
+			</div>
+		</div>	
+</div>

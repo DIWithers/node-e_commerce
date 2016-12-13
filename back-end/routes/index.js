@@ -11,7 +11,7 @@ var stripe = require("stripe")(config.secretTestKey);
 
 router.post("/stripe", function(req, res,next) {
 	stripe.charges.create({
-  		amount: 2000,
+  		amount: req.body.amount,
   		currency: "usd",
   		source: req.body.stripeToken, // obtained with Stripe.js
   		// description: "Charge for michael.smith@example.com" //opt.
@@ -61,7 +61,15 @@ router.post("/register", function(req, res, next) {
 		password: bcrypt.hashSync(req.body.password), 
 		email: req.body.email,
 		token: token,
-		tokenExpDate: Date.now() + (30 * 60 * 1000)
+		tokenExpDate: Date.now() + (30 * 60 * 1000),
+		frequency: '',
+		total: '',
+		fullName: '',
+		address1: '',
+		address2: '',
+		city: '',
+		state: '',
+		zipCode: ''
 	});
 	userToAdd.save(function(error, documentAdded) {
 		if(error) {
@@ -118,11 +126,28 @@ router.post("/options", function(req, res, next) {
 		{
 			frequency: req.body.frequency,
 			quantity: req.body.quantity,
-			grindType: req.body.grind
+			total: req.body.total
 		}
-	)
+	).exec();
+	res.json({
+		post: 'optionAdded'
+	});
 	
-})
+});
+router.post('/delivery', function(req, res, next){
+	Account.update({username: req.body.username},{
+		fullName: req.body.fullName,
+		address1: req.body.address1,
+		address2: req.body.address2,
+		city: req.body.city,
+		state: req.body.state,
+		zipCode: req.body.zipCode
+		}
+	).exec();
+		res.json({
+		post: 'addressAdded'
+	});
+});
 
 router.get("/getUserData", function(req, res, next) {
 	var userToken = req.query.token; // the xxxxx in ?token=xxxxxx
