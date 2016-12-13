@@ -121,7 +121,7 @@ router.post("/login", function(req, res, next) {
 	})
 });
 router.post("/options", function(req, res, next) {
-	User.update(
+	User.update( {},
 		{
 			token: req.body.token, //This is the droid we are looking for
 			plan: req.body.plan,
