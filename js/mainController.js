@@ -115,6 +115,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			zipCode: $scope.zipCode
 		}).then(function successCallback(response){
 			console.log(response.data.message);
+			$scope.userInfo = response;
 			$location.path('/payment');
 		}, function errorCallback(response){
 			console.log(response);
