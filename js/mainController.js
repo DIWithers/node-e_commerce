@@ -77,6 +77,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 	$scope.individualPlan = function(){
 		console.log("Indiv plan selected");
 		console.log($cookies.get('username'));
+		$location.path('/delivery');
 		$http.post(apiPath + '/options', {
 			// token: $cookies.get('token'),
 			plan: "Individual",
