@@ -7,7 +7,7 @@ var User = new Schema({
 	email: {type: String, required: true},
 	token: {type: String, required: true},
 	tokenExpDate : Date
-	frequency: String,
+	plan: String,
 	total: Number,
 	fullName: String,
 	address1: String,
