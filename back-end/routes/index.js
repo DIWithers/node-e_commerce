@@ -166,9 +166,8 @@ router.get("/getUserData", function(req, res, next) {
 				else {
 					res.json({
 						username: document.username,
-						plan: document.plan,
-						frequency: document.frequency,
-						token: document.token
+						email: document.email
+						// token: document.token
 						});
 				}
 			}
