@@ -115,7 +115,7 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 			zipCode: $scope.zipCode
 		}).then(function successCallback(response){
 			console.log(response.data.message);
-			$scope.userInfo = response;
+			// $scope.userInfo = response;
 			$location.path('/payment');
 		}, function errorCallback(response){
 			console.log(response);
@@ -323,6 +323,34 @@ ecommerceApp.controller("mainController", function($scope, $http, $location, $co
 // 	 	});
 // 	 };
 // $scope.name = $scope.checkout();
+    //Check for previous visit, make it easy for the cust, this info will also be used to populate other fields
+	function checkToken(){
+		if(($cookies.get('token') != undefined)){	
+			$http.get(apiPath + '/getUserData?token=' + $cookies.get('token'),{
+			}).then(function successCallback(response){
+				if(response.data.failure == 'badToken'){
+					console.log("bad token, check token");
+					$location.path('/login'); //need to log in again
+				}else if(response.data.failure == 'noToken'){
+					console.log("no token exists");
+					$location.path('/login'); //no token. goodbye - log in again
+				}else{
+					//the token is good. Response.data will have their data
+					$cookies.put('total', response.data.document.total);
+					$scope.username = response.data.document.username;
+					$('.navbar-text').text('Hello ' + $scope.username);
+					$scope.userInfo = response.data;
+						if(($location.path() == '/') || ($location.path() == '/register') || ($location.path() == '/login')){
+						$location.path('/options');
+						}
+					}	
+				}), function errorCallback(response){
+
+			};
+		}else if(($location.path() != '/') && ($location.path() != '/register') && ($location.path() != '/login') && ($cookies.get('token') == undefined)){
+			$location.path('/login');
+		};
+	};	
     $scope.payOrder = function(userOptions) {
         $scope.errorMessage = "";
         var handler = StripeCheckout.configure({
