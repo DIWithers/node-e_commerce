@@ -124,7 +124,7 @@ router.post("/options", function(req, res, next) {
 	User.update(
 		{
 			token: req.body.token, //This is the droid we are looking for
-			plan: req.body.frequency,
+			plan: req.body.plan,
 			// option: req.body.option,
 			total: req.body.total
 		}
