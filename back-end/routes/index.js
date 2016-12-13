@@ -122,10 +122,10 @@ router.post("/login", function(req, res, next) {
 });
 router.post("/options", function(req, res, next) {
 	User.update(
-		{token: req.body.token}, //This is the droid we are looking for
 		{
-			frequency: req.body.frequency,
-			quantity: req.body.quantity,
+			token: req.body.token, //This is the droid we are looking for
+			plan: req.body.frequency,
+			// option: req.body.option,
 			total: req.body.total
 		}
 	).exec();
@@ -145,7 +145,7 @@ router.post('/delivery', function(req, res, next){
 		}
 	).exec();
 		res.json({
-		message: 'addressAdded'
+		message: 'infoAdded'
 	});
 });
 
@@ -166,7 +166,7 @@ router.get("/getUserData", function(req, res, next) {
 				else {
 					res.json({
 						username: document.username,
-						grind: document.grind,
+						plan: document.plan,
 						frequency: document.frequency,
 						token: document.token
 						});
