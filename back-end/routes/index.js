@@ -135,7 +135,7 @@ router.post("/options", function(req, res, next) {
 	
 });
 router.post('/delivery', function(req, res, next){
-	Account.update({username: req.body.username},{
+	User.update({username: req.body.username},{
 		fullName: req.body.fullName,
 		address1: req.body.address1,
 		address2: req.body.address2,
